@@ -19,14 +19,7 @@ function Taskmanager() {
         setTask(''); // Clear the input field
         fetchData();
   
-      // If needed, uncomment the block below to send the task to the backend
-      /*
-      try {
-        await axios.post('http://localhost:1000/tasks', { name: task, completed: false });
-      } catch (error) {
-        console.error('Error sending task:', error);
-      }
-      */
+    
     };
     const handleDelete = (id) => {
       const task =  axios.delete( `http://localhost:1000/tasks/${id}` )
@@ -70,7 +63,7 @@ function Taskmanager() {
             type="text"
             placeholder="Enter your task"
             value={task}
-            onChange={handleInputChange} // Update state when user types
+            onChange={handleInputChange} 
           />
   
           <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded mt-4 hidden">
@@ -79,10 +72,10 @@ function Taskmanager() {
         </form>
   
         <div className="flex flex-col items-center w-1/2 border-s-black mx-auto">
-          {/* Directly rendering the task list here */}
+        
           {taskList.map((obj) => (
             <List
-              key={obj._id} // Use the unique _id as the key
+              key={obj._id} 
               id={obj._id}
               completed={obj.completed}
               name={obj.name}
